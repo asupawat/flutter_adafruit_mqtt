@@ -1,0 +1,6 @@
+{
+    "broker": "server",
+    "port": 8883,
+    "username": "user",
+    "key": "password"
+}
