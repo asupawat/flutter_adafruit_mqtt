@@ -132,10 +132,11 @@ class AppMqttTransactions {
     Map connectJson = await _getBrokerAndKey();
     // TBD Test valid broker and key
     log.info('in _login....broker  : ${connectJson['broker']}');
+    log.info('in _login....port: ${connectJson['port']}');
     log.info('in _login....key     : ${connectJson['key']}');
     log.info('in _login....username: ${connectJson['username']}');
 
-    client = MqttClient(connectJson['broker'], connectJson['key']);
+    client = MqttClient.withPort(connectJson['broker'], connectJson['key'], connectJson['port']);
     // Turn on mqtt package's logging while in test.
     client.logging(on: true);
     final MqttConnectMessage connMess = MqttConnectMessage()
